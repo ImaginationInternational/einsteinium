@@ -1,11 +1,11 @@
 Benchmarking
 ============
 
-Einsteinium Core has an internal benchmarking framework, with benchmarks
+Imagination Core has an internal benchmarking framework, with benchmarks
 for cryptographic algorithms such as SHA1, SHA256, SHA512 and RIPEMD160. As well as the rolling bloom filter.
 
-After compiling einsteinium-core, the benchmarks can be run with:
-`src/bench/bench_einsteinium`
+After compiling imagination-core, the benchmarks can be run with:
+`src/bench/bench_imagination`
 
 The output will look similar to:
 ```

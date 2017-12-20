@@ -65,11 +65,11 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += einsteiniumd
+  bin_PROGRAMS += imaginationd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += einsteinium-cli einsteinium-tx
+  bin_PROGRAMS += imagination-cli imagination-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
@@ -341,16 +341,16 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-einsteiniumd_SOURCES = bitcoind.cpp
-einsteiniumd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-einsteiniumd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-einsteiniumd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+imaginationd_SOURCES = bitcoind.cpp
+imaginationd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+imaginationd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+imaginationd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-einsteiniumd_SOURCES += bitcoind-res.rc
+imaginationd_SOURCES += bitcoind-res.rc
 endif
 
-einsteiniumd_LDADD = \
+imaginationd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -363,38 +363,38 @@ einsteiniumd_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-einsteiniumd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+imaginationd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
 # bitcoin-cli binary #
-einsteinium_cli_SOURCES = bitcoin-cli.cpp
-einsteinium_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-einsteinium_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-einsteinium_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+imagination_cli_SOURCES = bitcoin-cli.cpp
+imagination_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+imagination_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+imagination_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-einsteinium_cli_SOURCES += bitcoin-cli-res.rc
+imagination_cli_SOURCES += bitcoin-cli-res.rc
 endif
 
-einsteinium_cli_LDADD = \
+imagination_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
 
-einsteinium_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+imagination_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
 # bitcoin-tx binary #
-einsteinium_tx_SOURCES = bitcoin-tx.cpp
-einsteinium_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-einsteinium_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-einsteinium_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+imagination_tx_SOURCES = bitcoin-tx.cpp
+imagination_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+imagination_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+imagination_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-einsteinium_tx_SOURCES += bitcoin-tx-res.rc
+imagination_tx_SOURCES += bitcoin-tx-res.rc
 endif
 
-einsteinium_tx_LDADD = \
+imagination_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -402,7 +402,7 @@ einsteinium_tx_LDADD = \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-einsteinium_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+imagination_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # bitcoinconsensus library #

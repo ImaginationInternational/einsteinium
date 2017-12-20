@@ -126,8 +126,8 @@
         <translation>Abrir &amp;URL...</translation>
     </message>
     <message>
-        <source>Send coins to a Einsteinium address</source>
-        <translation>Enviando monedas a una dirección de Einsteinium</translation>
+        <source>Send coins to a Imagination address</source>
+        <translation>Enviando monedas a una dirección de Imagination</translation>
     </message>
     <message>
         <source>Change the passphrase used for wallet encryption</source>
@@ -146,8 +146,8 @@
         <translation>&amp;Verificar Mensaje...</translation>
     </message>
     <message>
-        <source>Einsteinium</source>
-        <translation>Einsteinium</translation>
+        <source>Imagination</source>
+        <translation>Imagination</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -290,8 +290,8 @@
 <context>
     <name>bitcoin-core</name>
     <message>
-        <source>Einsteinium Core</source>
-        <translation>Einsteinium Core</translation>
+        <source>Imagination Core</source>
+        <translation>Imagination Core</translation>
     </message>
     <message>
         <source>Insufficient funds</source>

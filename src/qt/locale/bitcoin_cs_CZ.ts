@@ -86,8 +86,8 @@
         <translation>Změnit heslo k šifrování peněženky</translation>
     </message>
     <message>
-        <source>Einsteinium</source>
-        <translation>Einsteinium</translation>
+        <source>Imagination</source>
+        <translation>Imagination</translation>
     </message>
     <message>
         <source>&amp;File</source>
