@@ -146,8 +146,8 @@
         <translation>Дискдаги блоклар қайта индексланмоқда...</translation>
     </message>
     <message>
-        <source>Send coins to a Einsteinium address</source>
-        <translation>Тангаларни Einsteinium манзилига жўнатиш</translation>
+        <source>Send coins to a Imagination address</source>
+        <translation>Тангаларни Imagination манзилига жўнатиш</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -170,8 +170,8 @@
         <translation>Хабарни &amp;тасдиқлаш...</translation>
     </message>
     <message>
-        <source>Einsteinium</source>
-        <translation>Einsteinium</translation>
+        <source>Imagination</source>
+        <translation>Imagination</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -198,12 +198,12 @@
         <translation>Ҳамёнингизга тегишли махфий калитларни кодлаш</translation>
     </message>
     <message>
-        <source>Sign messages with your Einsteinium addresses to prove you own them</source>
-        <translation>Einsteinium манзилидан унинг эгаси эканлигингизни исботлаш учун хабарлар ёзинг</translation>
+        <source>Sign messages with your Imagination addresses to prove you own them</source>
+        <translation>Imagination манзилидан унинг эгаси эканлигингизни исботлаш учун хабарлар ёзинг</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Einsteinium addresses</source>
-        <translation>Хабарларни махсус Einsteinium манзилларингиз билан ёзилганлигига ишонч ҳосил қилиш учун уларни тасдиқланг</translation>
+        <source>Verify messages to ensure they were signed with specified Imagination addresses</source>
+        <translation>Хабарларни махсус Imagination манзилларингиз билан ёзилганлигига ишонч ҳосил қилиш учун уларни тасдиқланг</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -222,8 +222,8 @@
         <translation>Ички ойналар асбоблар панели</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and einsteinium: URIs)</source>
-        <translation>Тўловлар (QR кодлари ва einsteinium ёрдамида яратишлар: URI’лар) сўраш</translation>
+        <source>Request payments (generates QR codes and imagination: URIs)</source>
+        <translation>Тўловлар (QR кодлари ва imagination ёрдамида яратишлар: URI’лар) сўраш</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -234,16 +234,16 @@
         <translation>Фойдаланилган қабул қилинган манзиллар ва ёрлиқлар рўйхатини кўрсатиш</translation>
     </message>
     <message>
-        <source>Open a einsteinium: URI or payment request</source>
-        <translation>Einsteinium’ни очиш: URI ёки тўлов сўрови</translation>
+        <source>Open a imagination: URI or payment request</source>
+        <translation>Imagination’ни очиш: URI ёки тўлов сўрови</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Буйруқлар сатри мосламалари</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Einsteinium network</source>
-        <translation><numerusform>%n та Einsteinium тармоғига фаол уланиш мавжуд</numerusform></translation>
+        <source>%n active connection(s) to Imagination network</source>
+        <translation><numerusform>%n та Imagination тармоғига фаол уланиш мавжуд</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -622,8 +622,8 @@
         <translation>Шакл</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Einsteinium network after a connection is established, but this process has not completed yet.</source>
-        <translation>Кўрсатилган маълумот эскирган бўлиши мумкин. Ҳамёнингиз алоқа ўрнатилгандан сўнг Einsteinium тармоқ билан автоматик тарзда синхронланади, аммо жараён ҳалигача тугалланмади.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Imagination network after a connection is established, but this process has not completed yet.</source>
+        <translation>Кўрсатилган маълумот эскирган бўлиши мумкин. Ҳамёнингиз алоқа ўрнатилгандан сўнг Imagination тармоқ билан автоматик тарзда синхронланади, аммо жараён ҳалигача тугалланмади.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -707,8 +707,8 @@
         <translation>Миқдори</translation>
     </message>
     <message>
-        <source>Enter a Einsteinium address (e.g. %1)</source>
-        <translation>Einsteinium манзилини киритинг (масалан.  %1)</translation>
+        <source>Enter a Imagination address (e.g. %1)</source>
+        <translation>Imagination манзилини киритинг (масалан.  %1)</translation>
     </message>
     <message>
         <source>%1 m</source>
@@ -1234,8 +1234,8 @@
         <translation>Демон сифатида орқа фонда ишга туширинг ва буйруқларга рози бўлинг</translation>
     </message>
     <message>
-        <source>Einsteinium Core</source>
-        <translation>Einsteinium Core</translation>
+        <source>Imagination Core</source>
+        <translation>Imagination Core</translation>
     </message>
     <message>
         <source>Connection options:</source>

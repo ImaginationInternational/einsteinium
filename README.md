@@ -1,9 +1,9 @@
-Einsteinium Core integration/staging tree
+Imagination Core integration/staging tree
 =====================================
 
-[![Build Status](https://api.travis-ci.org/emc2foundation/einsteinium.svg?branch=0.13_master_EMC2)](https://travis-ci.org/emc2foundation/einsteinium)
+[![Build Status](https://api.travis-ci.org/ImaginationInternational/imagination.svg?branch=0.13_master_EMC2)](https://travis-ci.org/ImaginationInternational/imagination)
 
-https://emc2.foundation
+https://Imagination.International
 
 Repo & Branches:
 ----------------
@@ -14,43 +14,43 @@ Dev branches are in place for online and offline development - contributors plea
 
 The "master" branch is currently used to rebase the latest Litecoin code - otherwise it stays untouched
 
-The current, deprecated Einsteinium 0.9.2 wallet is available as a tagged branch as well
+The current, deprecated Imagination 0.9.2 wallet is available as a tagged branch as well
 
-What is Einsteinium?
+What is Imagination?
 ----------------
 
-Einsteinium is an experimental digital currency that enables instant payments to
-anyone, anywhere in the world. Einsteinium uses peer-to-peer technology to operate
+Imagination is an experimental digital currency that enables instant payments to
+anyone, anywhere in the world. Imagination uses peer-to-peer technology to operate
 with no central authority: managing transactions and issuing money are carried
-out collectively by the network. Einsteinium Core is the name of open source
+out collectively by the network. Imagination Core is the name of open source
 software which enables the use of this currency.
 
 - Algorithm: Scrypt PoW
-- Total Einsteinium: 299,792,458
+- Total Imagination: 299,792,458
 - Initial block value: 1024
 - Reward Reduction Method: Block Halving
 - Block Target Time: 60 seconds
 - Difficulty Re-targeting: per block (Kimoto Gravity Well)
 - RPC Port: 41879
 - P2P Port: 41878
-- Donation to the Einsteinium Charitable Fund (per block): 2%
+- Donation to the Imagination Charitable Fund (per block): 2%
 - Donation to to faucets, give-aways and marketing (per block): 0.5%
 
 For more information, as well as an immediately useable, binary version of
-the Einsteinium Core software, see [https://emc2.foundation](https://emc2.foundation).
+the Imagination Core software, see [https://Imagination.International](https://Imagination.International).
 
 License
 -------
 
-Einsteinium Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+Imagination Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
 
 Development Process
 -------------------
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/emc2foundation/einsteinium/tags) //ToDo: change after first release //are created
-regularly to indicate new official, stable release versions of Einsteinium Core.
+completely stable. [Tags](https://github.com/ImaginationInternational/imagination/tags) //ToDo: change after first release //are created
+regularly to indicate new official, stable release versions of Imagination Core.
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -91,7 +91,7 @@ Translations
 ------------
 
 We only accept translation fixes that are submitted through [Bitcoin Core's Transifex page](https://www.transifex.com/projects/p/bitcoin/).
-Translations are converted to Einsteinium periodically.
+Translations are converted to Imagination periodically.
 
 Translations are periodically pulled from Transifex and merged into the git repository. See the
 [translation process](doc/translation_process.md) for details on how this works.

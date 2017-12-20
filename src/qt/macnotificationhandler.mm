@@ -13,7 +13,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"org.einsteinium.Einsteinium-Qt";
+        return @"international.imagination.Imagination-Qt";
     } else {
         return [self __bundleIdentifier];
     }

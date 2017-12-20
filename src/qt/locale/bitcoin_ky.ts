@@ -30,8 +30,8 @@
         <translation>Билдирүүнү &amp;текшерүү...</translation>
     </message>
     <message>
-        <source>Einsteinium</source>
-        <translation>Einsteinium</translation>
+        <source>Imagination</source>
+        <translation>Imagination</translation>
     </message>
     <message>
         <source>Wallet</source>

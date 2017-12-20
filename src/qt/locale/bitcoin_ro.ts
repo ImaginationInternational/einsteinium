@@ -142,8 +142,8 @@
         <translation>Deschide &amp;URI...</translation>
     </message>
     <message>
-        <source>Send coins to a Einsteinium address</source>
-        <translation>Trimite monedele către o adresă Einsteinium</translation>
+        <source>Send coins to a Imagination address</source>
+        <translation>Trimite monedele către o adresă Imagination</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -166,8 +166,8 @@
         <translation>&amp;Verifică mesajul...</translation>
     </message>
     <message>
-        <source>Einsteinium</source>
-        <translation>Einsteinium</translation>
+        <source>Imagination</source>
+        <translation>Imagination</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -194,12 +194,12 @@
         <translation>Criptează cheile private care aparțin portofelului tău.</translation>
     </message>
     <message>
-        <source>Sign messages with your Einsteinium addresses to prove you own them</source>
-        <translation>Semnează mesajele cu adresa ta de Einsteinium pentru a face dovada că îți aparțin.</translation>
+        <source>Sign messages with your Imagination addresses to prove you own them</source>
+        <translation>Semnează mesajele cu adresa ta de Imagination pentru a face dovada că îți aparțin.</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Einsteinium addresses</source>
-        <translation>Verifică mesajele cu scopul de a asigura faptul că au fost semnate cu adresa de Einsteinium specificată.</translation>
+        <source>Verify messages to ensure they were signed with specified Imagination addresses</source>
+        <translation>Verifică mesajele cu scopul de a asigura faptul că au fost semnate cu adresa de Imagination specificată.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -214,12 +214,12 @@
         <translation>&amp;Ajutor</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and einsteinium: URIs)</source>
-        <translation>Cerere plată (generează coduri QR și einsteinium: URIs)</translation>
+        <source>Request payments (generates QR codes and imagination: URIs)</source>
+        <translation>Cerere plată (generează coduri QR și imagination: URIs)</translation>
     </message>
     <message>
-        <source>Open a einsteinium: URI or payment request</source>
-        <translation>Deschide un einsteinium: URI sau cerere de plată</translation>
+        <source>Open a imagination: URI or payment request</source>
+        <translation>Deschide un imagination: URI sau cerere de plată</translation>
     </message>
     <message>
         <source>%1 and %2</source>
@@ -746,8 +746,8 @@
 <context>
     <name>bitcoin-core</name>
     <message>
-        <source>Einsteinium Core</source>
-        <translation>Einsteinium Core</translation>
+        <source>Imagination Core</source>
+        <translation>Imagination Core</translation>
     </message>
     <message>
         <source>Information</source>

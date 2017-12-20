@@ -16,14 +16,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "Einsteinium"
-            VALUE "FileDescription",    "einsteiniumd (Einsteinium node with a JSON-RPC server)"
+            VALUE "CompanyName",        "Imagination"
+            VALUE "FileDescription",    "imaginationd (Imagination node with a JSON-RPC server)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "einsteiniumd"
+            VALUE "InternalName",       "imaginationd"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "einsteiniumd.exe"
-            VALUE "ProductName",        "einsteiniumd"
+            VALUE "OriginalFilename",   "imaginationd.exe"
+            VALUE "ProductName",        "imaginationd"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END
