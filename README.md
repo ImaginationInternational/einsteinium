@@ -31,8 +31,8 @@ software which enables the use of this currency.
 - Reward Reduction Method: Block Halving
 - Block Target Time: 60 seconds
 - Difficulty Re-targeting: per block (Kimoto Gravity Well)
-- RPC Port: 41879
-- P2P Port: 41878
+- RPC Port: 31679
+- P2P Port: 31678
 - Donation to the Imagination Charitable Fund (per block): 2%
 - Donation to to faucets, give-aways and marketing (per block): 0.5%
 
