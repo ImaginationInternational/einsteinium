@@ -6,6 +6,7 @@
 
 #include "chainparams.h"
 #include "consensus/merkle.h"
+#include "consensus/consensus.h"
 
 #include "tinyformat.h"
 #include "util.h"
@@ -69,7 +70,7 @@ public:
         consensus.nMajorityEnforceBlockUpgrade = 1875;  // <-- Imagination: 1000 blocks LTC = 2500 blocks EMC2
         consensus.nMajorityRejectBlockOutdated = 2375;  // <-- Imagination: 1000 blocks LTC = 2500 blocks EMC2
         consensus.nMajorityWindow = 2500;               // <-- Imagination: 1000 blocks LTC = 2500 blocks EMC2
-        consensus.BIP34Height = 1;                      // <-- Imagination: forgot to update initial code, update after V3 or higher active!!!
+        consensus.BIP34Height = select_activation_height(1);                      // <-- Imagination: forgot to update initial code, update after V3 or higher active!!!
         consensus.BIP34Hash = uint256S("0xd1c175570320d4d6388a4525385b8f20460d340f621cfeebb9824712b9e593c5"); // <-- Imagination: used for BIP30 enforcement, set to corresponding BIP34 Height after V3 activation!
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.CharityPubKey = "7062D502A8B9214BDEA7684A61410C9CC4E404CA"; // ETQ9a3PMg5QRA2DBzp5DPthfXxN6QqiMML
@@ -94,7 +95,9 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1517356801; // January 31st, 2018
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("00000000000000000000000000000000000000000000000000c77bc63bfadbd1"); // <-- Imagination: OK
+        // If forking after the current height, replace below line with commented out version
+                consensus.nMinimumChainWork = uint256S("0x00");
+//        consensus.nMinimumChainWork = uint256S("00000000000000000000000000000000000000000000000000c77bc63bfadbd1"); // <-- Imagination: OK
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -252,7 +255,7 @@ public:
         consensus.nMajorityEnforceBlockUpgrade = 750;
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
-        consensus.BIP34Height = -1; // BIP34 has not necessarily activated on regtest
+        consensus.BIP34Height = 500; // This is deactivated with a -1, but we activate it on the fork block here, as we otherwise won't get the fork hash coinbase
         consensus.BIP34Hash = uint256();
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.CharityPubKey = "0377ba3117d776b40b49a910e869cd32adee4d33578f7bf52e1879ea739c9796ca"; // mtFhq4FbmFkoFmMECc7NXzrYiaxEii56su
