@@ -72,7 +72,8 @@ public:
         consensus.BIP34Height = 1;                      // <-- Einsteinium: forgot to update initial code, update after V3 or higher active!!!
         consensus.BIP34Hash = uint256S("0xd1c175570320d4d6388a4525385b8f20460d340f621cfeebb9824712b9e593c5"); // <-- Einsteinium: used for BIP30 enforcement, set to corresponding BIP34 Height after V3 activation!
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.CharityPubKey = "1cec44c9f9b769ae08ebf9d694c7611a16edf615"; // EKnqTC9XEuucZEhD3miDGnbJxBptcxhByA
+//        consensus.CharityPubKey = "1cec44c9f9b769ae08ebf9d694c7611a16edf615"; // EKnqTC9XEuucZEhD3miDGnbJxBptcxhByA
+        consensus.CharityPubKey = "ec4d63447e38628de79741883bac6b5b788cc828"; // EehMfrPKe1sCpQEuwCfVSRztDHbNqB8ceF // address hex found here: http://gobittest.appspot.com/Address
         consensus.nPowTargetTimespan = 60;  // <-- Einsteinium: OK
         consensus.nPowTargetSpacing = 60;   // <-- Einsteinium: OK
         consensus.fPowAllowMinDifficultyBlocks = false;
@@ -94,7 +95,9 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1517356801; // January 31st, 2018
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("00000000000000000000000000000000000000000000000000c77bc63bfadbd1"); // <-- Einsteinium: OK
+        // If forking after the current height, replace below line with commented out version
+                consensus.nMinimumChainWork = uint256S("0x00");
+        //consensus.nMinimumChainWork = uint256S("00000000000000000000000000000000000000000000000000c77bc63bfadbd1"); // <-- Einsteinium: OK
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -105,7 +108,7 @@ public:
         pchMessageStart[1] = 0xf1;  // <--Einsteinium: OK
         pchMessageStart[2] = 0xc4;  // <--Einsteinium: OK
         pchMessageStart[3] = 0xac;  // <--Einsteinium: OK
-        nDefaultPort = 41878;       // <--Einsteinium: OK
+        nDefaultPort = 31678;       // <--Einsteinium: OK
         nPruneAfterHeight = 100000;
 
         genesis = CreateGenesisBlock("NY Times 19/Feb/2014 North Korea Arrests Christian Missionary From Australia", CScript() << OP_DUP << OP_HASH160 << ParseHex("1cec44c9f9b769ae08ebf9d694c7611a16edf615") << OP_EQUALVERIFY << OP_CHECKSIG, 1392841423, 3236648, 0x1e0ffff0, 1, 50 * COIN); // <--Einsteinium: OK
@@ -114,15 +117,12 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0xb3e47e8776012ee4352acf603e6b9df005445dcba85c606697f422be3cc26f9b")); // <--Einsteinium: OK
 
         // Note that of those with the service bits flag, most only support a subset of possible options
-        vSeeds.push_back(CDNSSeedData("emc2.foundation", "dnsseeder01.emc2.foundation")); // <--Einsteinium: OK
-        vSeeds.push_back(CDNSSeedData("emc2.foundation", "dnsseeder02.emc2.foundation")); // <--Einsteinium: OK
-        vSeeds.push_back(CDNSSeedData("chainworksindustries.com", "emc2-seed01.chainworksindustries.com")); // <--Einsteinium: OK
-        vSeeds.push_back(CDNSSeedData("chainworksindustries.com", "emc2-seed02.chainworksindustries.com")); // <--Einsteinium: OK
-        vSeeds.push_back(CDNSSeedData("chainworksindustries.com", "emc2-seed03.chainworksindustries.com")); // <--Einsteinium: OK
-        vSeeds.push_back(CDNSSeedData("chainworksindustries.com", "emc2-seed04.chainworksindustries.com")); // <--Einsteinium: OK
-        vSeeds.push_back(CDNSSeedData("chainworksindustries.com", "emc2-seed05.chainworksindustries.com")); // <--Einsteinium: OK
-        vSeeds.push_back(CDNSSeedData("chainworksindustries.com", "emc2-seed06.chainworksindustries.com")); // <--Einsteinium: OK
-        vSeeds.push_back(CDNSSeedData("chainworksindustries.com", "emc2-seed07.chainworksindustries.com")); // <--Einsteinium: OK
+        vSeeds.push_back(CDNSSeedData("imagination.international", "mag-seed01.Imagination.International")); // <--Imagination: OK
+        vSeeds.push_back(CDNSSeedData("imagination.international", "mag-seed02.Imagination.International")); // <--Imagination: OK
+        vSeeds.push_back(CDNSSeedData("imagination.international", "mag-seed03.Imagination.International")); // <--Imagination: OK
+        vSeeds.push_back(CDNSSeedData("imagination.international", "mag-seed04.Imagination.International")); // <--Imagination: OK
+        vSeeds.push_back(CDNSSeedData("imagination.international", "mag-seed05.Imagination.International")); // <--Imagination: OK
+        vSeeds.push_back(CDNSSeedData("imagination.international", "mag-seed06.Imagination.International")); // <--Imagination: OK
 
         // Einsteinium: Address encoding P2SH BTC = 5 / LTC NEW = 50 / EMC2 OLD = 5
 
