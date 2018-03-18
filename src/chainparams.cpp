@@ -72,8 +72,8 @@ public:
         consensus.BIP34Height = 1;                      // <-- Einsteinium: forgot to update initial code, update after V3 or higher active!!!
         consensus.BIP34Hash = uint256S("0xd1c175570320d4d6388a4525385b8f20460d340f621cfeebb9824712b9e593c5"); // <-- Einsteinium: used for BIP30 enforcement, set to corresponding BIP34 Height after V3 activation!
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-//        consensus.CharityPubKey = "1cec44c9f9b769ae08ebf9d694c7611a16edf615"; // EKnqTC9XEuucZEhD3miDGnbJxBptcxhByA
-        consensus.CharityPubKey = "ec4d63447e38628de79741883bac6b5b788cc828"; // EehMfrPKe1sCpQEuwCfVSRztDHbNqB8ceF // address hex found here: http://gobittest.appspot.com/Address
+        consensus.CharityPubKey = "1cec44c9f9b769ae08ebf9d694c7611a16edf615"; // EKnqTC9XEuucZEhD3miDGnbJxBptcxhByA
+//        consensus.CharityPubKey = "ec4d63447e38628de79741883bac6b5b788cc828"; // EehMfrPKe1sCpQEuwCfVSRztDHbNqB8ceF // address hex found here: http://gobittest.appspot.com/Address
         consensus.nPowTargetTimespan = 60;  // <-- Einsteinium: OK
         consensus.nPowTargetSpacing = 60;   // <-- Einsteinium: OK
         consensus.fPowAllowMinDifficultyBlocks = false;
@@ -144,15 +144,16 @@ public:
     checkpointData = (CCheckpointData) {
         boost::assign::map_list_of
             (        0, uint256S("0x4e56204bb7b8ac06f860ff1c845f03f984303b5b97eb7b42868f714611aed94b"))  // <--Einsteinium: OK
-            (    14871, uint256S("0x5dedc3dd860f008c717d69b8b00f0476de8bc6bdac8d543fb58c946f32f982fa"))  // <--Einsteinium: OK
-            (    36032, uint256S("0xff37468190b2801f2e72eb1762ca4e53cda6c075af48343f28a32b649512e9a8"))  // <--Einsteinium: OK
-            (    51365, uint256S("0x702b407c68091f3c97a587a8d92684666bb622f6821944424b850964b366e42c"))  // <--Einsteinium: OK
-            (   621000, uint256S("0xe2bf6d219cff9d6d7661b7964a05bfea3128265275c3673616ae71fed7072981"))  // <--Einsteinium: OK
-            (  1410100, uint256S("0xf6736ff2a7743014ab1902e442328f5c9928ce7f4edb2b4fd0130010cb4cebc4")), // <--Einsteinium: OK
-            1494147472, // * UNIX timestamp of last checkpoint block                                     // <--Einsteinium: OK
-            2147811,    // * total number of transactions between genesis and last checkpoint            // <--Einsteinium: OK
+//            (    14871, uint256S("0x5dedc3dd860f008c717d69b8b00f0476de8bc6bdac8d543fb58c946f32f982fa"))  // <--Einsteinium: OK
+//            (    36032, uint256S("0xff37468190b2801f2e72eb1762ca4e53cda6c075af48343f28a32b649512e9a8"))  // <--Einsteinium: OK
+//            (    51365, uint256S("0x702b407c68091f3c97a587a8d92684666bb622f6821944424b850964b366e42c"))  // <--Einsteinium: OK
+//            (   621000, uint256S("0xe2bf6d219cff9d6d7661b7964a05bfea3128265275c3673616ae71fed7072981"))  // <--Einsteinium: OK
+//            (  1410100, uint256S("0xf6736ff2a7743014ab1902e442328f5c9928ce7f4edb2b4fd0130010cb4cebc4")), // <--Einsteinium: OK
+            //1494147472, // * UNIX timestamp of last checkpoint block                                     // <--Einsteinium: OK
+            //2147811,    // * total number of transactions between genesis and last checkpoint            // <--Einsteinium: OK
                       //   (the tx=... number in the SetBestChain debug.log lines)
-            2000     // * estimated number of transactions per day after checkpoint                      // <--Einsteinium: OK
+            //2000     // * estimated number of transactions per day after checkpoint                      // <--Einsteinium: OK
+		,0,0,0
             };
     }
 };
