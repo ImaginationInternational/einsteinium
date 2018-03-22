@@ -71,7 +71,8 @@ public:
         consensus.nMajorityWindow = 2500;               // <-- Einsteinium: 1000 blocks LTC = 2500 blocks EMC2
         consensus.BIP34Height = 1;                      // <-- Einsteinium: forgot to update initial code, update after V3 or higher active!!!
         consensus.BIP34Hash = uint256S("0xd1c175570320d4d6388a4525385b8f20460d340f621cfeebb9824712b9e593c5"); // <-- Einsteinium: used for BIP30 enforcement, set to corresponding BIP34 Height after V3 activation!
-        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+//        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.CharityPubKey = "1cec44c9f9b769ae08ebf9d694c7611a16edf615"; // EKnqTC9XEuucZEhD3miDGnbJxBptcxhByA
 //        consensus.CharityPubKey = "ec4d63447e38628de79741883bac6b5b788cc828"; // EehMfrPKe1sCpQEuwCfVSRztDHbNqB8ceF // address hex found here: http://gobittest.appspot.com/Address
         consensus.nPowTargetTimespan = 60;  // <-- Einsteinium: OK
@@ -135,11 +136,17 @@ public:
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));  // <-- Einsteinium: Seeder array to be extended
 
-        fMiningRequiresPeers = true;
-        fDefaultConsistencyChecks = false;
-        fRequireStandard = true;
-        fMineBlocksOnDemand = false;
-        fTestnetToBeDeprecatedFieldRPC = false;
+//        fMiningRequiresPeers = true;
+//        fDefaultConsistencyChecks = false;
+//        fRequireStandard = true;
+//        fMineBlocksOnDemand = false;
+//        fTestnetToBeDeprecatedFieldRPC = false;
+
+        fMiningRequiresPeers = false;
+         fDefaultConsistencyChecks = true;
+         fRequireStandard = false;
+         fMineBlocksOnDemand = true;
+         fTestnetToBeDeprecatedFieldRPC = false;
 
     checkpointData = (CCheckpointData) {
         boost::assign::map_list_of

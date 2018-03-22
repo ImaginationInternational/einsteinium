@@ -20,12 +20,13 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     int nHeight = pindexLast->nHeight + 1;
     bool fNewDifficultyProtocol = (nHeight >= nDiffChangeTarget);
 
-    if (fNewDifficultyProtocol || params.fPowAllowMinDifficultyBlocks) {
+    if (/*fNewDifficultyProtocol ||*/ params.fPowAllowMinDifficultyBlocks) {
         return DigiShield(pindexLast, pblock, params);
     }
     else {
 
-        static const int64_t	            	 BlocksTargetSpacing                          = 60; // 1 minute
+//        static const int64_t	            	 BlocksTargetSpacing                          = 60; // 1 minute
+        static const int64_t	            	 BlocksTargetSpacing                          = 1; // 1 second
         unsigned int                             TimeDaySeconds                               = 60 * 60 * 24;
         int64_t                                  PastSecondsMin                               = TimeDaySeconds * 0.25;
         int64_t                                  PastSecondsMax                               = TimeDaySeconds * 7;
@@ -107,7 +108,9 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
 
     /// debug print
     LogPrintf("GetNextWorkRequired: DIGISHIELD RETARGET\n");
-    return bnNew.GetCompact();
+
+       return bnNew.GetCompact();
+
 }
 
 bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params& params)
@@ -161,8 +164,8 @@ unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader
 
                 PastDifficultyAveragePrev = PastDifficultyAverage;
 
-                PastRateActualSeconds                        = BlockLastSolved->GetBlockTime() - BlockReading->GetBlockTime();
-                PastRateTargetSeconds                        = TargetBlocksSpacingSeconds * PastBlocksMass;
+                PastRateActualSeconds                        = (BlockLastSolved->GetBlockTime()  - BlockReading->GetBlockTime() ) * int64_t("0x0fffffffffffffffffffffffffffffff") * int64_t("0xffffffffffffffffffffffffffffffff") * int64_t("0xffffffffffffffffffffffffffffffff") * int64_t("0xffffffffffffffffffffffffffffffff")  * int64_t("0xffffffffffffffffffffffffffffffff") * int64_t("0xffffffffffffffffffffffffffffffff") * int64_t("0xffffffffffffffffffffffffffffffff");
+                PastRateTargetSeconds                        = TargetBlocksSpacingSeconds * PastBlocksMass ;
                 PastRateAdjustmentRatio                        = double(1);
                 if (PastRateActualSeconds < 0) { PastRateActualSeconds = 0; }
                 if (PastRateActualSeconds != 0 && PastRateTargetSeconds != 0) {
@@ -186,15 +189,18 @@ unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader
             bnNew *= PastRateActualSeconds;
             bnNew /= PastRateTargetSeconds;
        }
-        if (bnNew > bnPowLimit)
+        if (bnNew > bnPowLimit){
+        	   printf("bnNew hit the limit: %s \n", bnPowLimit.ToString().c_str());
             bnNew = bnPowLimit;
+        }
 
-/* debug print (commented out due to spamming logs when the loop above breaks)
+        /* debug print (commented out due to spamming logs when the loop above breaks)
+*/
    printf("Difficulty Retarget - Kimoto Gravity Well\n");
    printf("PastRateAdjustmentRatio = %g\n", PastRateAdjustmentRatio);
    printf("Before: %08x %s\n", BlockLastSolved->nBits, arith_uint256().SetCompact(BlockLastSolved->nBits).ToString().c_str());
    printf("After: %08x %s\n", bnNew.GetCompact(), bnNew.ToString().c_str());
-*/
+
 
         return bnNew.GetCompact();
 }
