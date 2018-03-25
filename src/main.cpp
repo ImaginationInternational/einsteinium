@@ -122,6 +122,38 @@ CScript CHARITY_SCRIPT;
 
 const string strMessageMagic = "Einsteinium Signed Message:\n";
 
+
+
+
+#include "net.h" // Was: CConnman, now CNode
+void conforksus_block_tip_changed(int height)
+{
+    if (!fork_conforksus.active && height >= FORK_BLOCK) {
+        // HARD FORK BLOCK REACHED !!!!oneoneone
+        printf("*** FORKING ***\n");
+        fork_conforksus.enable();
+        mempool.clear();
+//        Params().UpdateForkPorts();
+        /*std::unique_ptr<CNode> g_connman;
+        g_connman->*//*InitiatedConsensusChange();*/
+    } else if (fork_conforksus.active && height < FORK_BLOCK) {
+        // enoenoeno!!!! DEHCAER KCOLB KROF DRAH
+        printf("*** UN-FORKING ***\n");
+        fork_conforksus.elbane();
+        mempool.clear();
+    }
+}
+
+void conforksus_will_validate_at_height(int height)
+{
+    conforksus_block_tip_changed(height - (height > 0));
+}
+
+
+
+
+
+
 // Internal stuff
 namespace {
 
@@ -1801,10 +1833,12 @@ bool IsInitialBlockDownload()
         return true;
     if (chainActive.Tip() == NULL)
         return true;
-    if (chainActive.Tip()->nChainWork < UintToArith256(chainParams.GetConsensus().nMinimumChainWork))
-        return true;
-    if (chainActive.Tip()->GetBlockTime() < (GetTime() - nMaxTipAge))
-        return true;
+    if (!fork_conforksus.active) {
+		if (chainActive.Tip()->nChainWork < UintToArith256(chainParams.GetConsensus().nMinimumChainWork))
+			return true;
+		if (chainActive.Tip()->GetBlockTime() < (GetTime() - nMaxTipAge))
+			return true;
+    }
     latchToFalse.store(true, std::memory_order_relaxed);
     return false;
 }
@@ -3446,6 +3480,12 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 
 bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, const Consensus::Params& consensusParams, bool fCheckPOW)
 {
+
+    // Skip all checks if
+    // (1) the header is beyond our fork point, and
+    // (2) we have not yet forked.
+    if (!fork_conforksus.active /*&& (pindexPrev->nHeight+1) > FORK_BLOCK*/) return true;
+
     // Check proof of work matches claimed amount
     if (fCheckPOW && !CheckProofOfWork(block.GetPoWHash(), block.nBits, consensusParams))
         return state.DoS(50, false, REJECT_INVALID, "high-hash", false, "proof of work failed");
@@ -3590,6 +3630,14 @@ std::vector<unsigned char> GenerateCoinbaseCommitment(CBlock& block, const CBloc
 
 bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& state, const Consensus::Params& consensusParams, CBlockIndex * const pindexPrev, int64_t nAdjustedTime)
 {
+
+
+    // Skip all checks if
+    // (1) the header is beyond our fork point, and
+    // (2) we have not yet forked.
+    if (!fork_conforksus.active && (pindexPrev->nHeight+1) > FORK_BLOCK) return true;
+
+
     // Check proof of work
     if (block.nBits != GetNextWorkRequired(pindexPrev, &block, consensusParams))
         return state.DoS(100, false, REJECT_INVALID, "bad-diffbits", false, "incorrect proof of work");

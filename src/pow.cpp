@@ -19,8 +19,9 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 {
     int nHeight = pindexLast->nHeight + 1;
     bool fNewDifficultyProtocol = (nHeight >= nDiffChangeTarget);
+    printf("nHeight >= nDiffChangeTarget - %i >= %ld\n", nHeight, nDiffChangeTarget);
 
-    if (fNewDifficultyProtocol || params.fPowAllowMinDifficultyBlocks) {
+    if (fNewDifficultyProtocol /*|| params.fPowAllowMinDifficultyBlocks*/) {
         return DigiShield(pindexLast, pblock, params);
     }
     else {
