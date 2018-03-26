@@ -13,15 +13,17 @@
 #include "util.h"
 #include <cmath>
 
+#include "consensus/consensus.h"
+
 static const int64_t nDiffChangeTarget = 56000; // Patch effective @ block 56000
 
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
 {
     int nHeight = pindexLast->nHeight + 1;
     bool fNewDifficultyProtocol = (nHeight >= nDiffChangeTarget);
-    printf("nHeight >= nDiffChangeTarget - %i >= %ld\n", nHeight, nDiffChangeTarget);
+    printf("nHeight >= nDiffChangeTarget - %i >= %ld    ::  FORK_BLOCK: %i\n", nHeight, nDiffChangeTarget, FORK_BLOCK);
 
-    if (fNewDifficultyProtocol /*|| params.fPowAllowMinDifficultyBlocks*/) {
+    if ((fNewDifficultyProtocol || params.fPowAllowMinDifficultyBlocks) && (nHeight > FORK_BLOCK)) {
         return DigiShield(pindexLast, pblock, params);
     }
     else {
@@ -120,12 +122,32 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&
     bnTarget.SetCompact(nBits, &fNegative, &fOverflow);
 
     // Check range
-    if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(params.powLimit))
+    if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(params.powLimit)){
+        LogPrintf("CheckProofOfWork: out of range\n");
+        if(fNegative){
+        LogPrintf("CheckProofOfWork: fNegative = TRUE\n");
         return false;
+        }
+        if(bnTarget == 0){
+        LogPrintf("CheckProofOfWork: bnTarget == 0 = TRUE\n");
+        return false;
+        }
+        if(fOverflow){
+        LogPrintf("CheckProofOfWork: fOverflow = TRUE\n");
+        return false;
+        }
+        if(bnTarget > UintToArith256(params.powLimit)){
+        LogPrintf("CheckProofOfWork: bnT>UintT = TRUE\n");
+//        return false;
+        }
+//        return false;
+    }
 
     // Check proof of work matches claimed amount
-    if (UintToArith256(hash) > bnTarget)
+    if (UintToArith256(hash) > bnTarget){
+        LogPrintf("CheckProofOfWork: does not match claim\n");
         return false;
+    }
 
     return true;
 }
