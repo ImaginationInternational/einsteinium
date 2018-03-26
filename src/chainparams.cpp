@@ -115,6 +115,12 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0xb3e47e8776012ee4352acf603e6b9df005445dcba85c606697f422be3cc26f9b")); // <--Einsteinium: OK
 
         // Note that of those with the service bits flag, most only support a subset of possible options
+        vSeeds.push_back(CDNSSeedData("imagination.international", "mag-seed01.Imagination.International")); // <--Imagination: OK
+        vSeeds.push_back(CDNSSeedData("imagination.international", "mag-seed02.Imagination.International")); // <--Imagination: OK
+        vSeeds.push_back(CDNSSeedData("imagination.international", "mag-seed03.Imagination.International")); // <--Imagination: OK
+        vSeeds.push_back(CDNSSeedData("imagination.international", "mag-seed04.Imagination.International")); // <--Imagination: OK
+        vSeeds.push_back(CDNSSeedData("imagination.international", "mag-seed05.Imagination.International")); // <--Imagination: OK
+        vSeeds.push_back(CDNSSeedData("imagination.international", "mag-seed06.Imagination.International")); // <--Imagination: OK
 
         // Einsteinium: Address encoding P2SH BTC = 5 / LTC NEW = 50 / EMC2 OLD = 5
 
