@@ -72,7 +72,8 @@ public:
         consensus.BIP34Height = 1;                      // <-- Imagination: forgot to update initial code, update after V3 or higher active!!!
         consensus.BIP34Hash = uint256S("0xd1c175570320d4d6388a4525385b8f20460d340f621cfeebb9824712b9e593c5"); // <-- Imagination: used for BIP30 enforcement, set to corresponding BIP34 Height after V3 activation!
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.CharityPubKey = "7062D502A8B9214BDEA7684A61410C9CC4E404CA"; // ETQ9a3PMg5QRA2DBzp5DPthfXxN6QqiMML
+        consensus.CharityPubKey = "1cec44c9f9b769ae08ebf9d694c7611a16edf615"; // EKnqTC9XEuucZEhD3miDGnbJxBptcxhByA
+        consensus.CharityPostForkPubKey = "7062D502A8B9214BDEA7684A61410C9CC4E404CA"; // ETQ9a3PMg5QRA2DBzp5DPthfXxN6QqiMML
         consensus.nPowTargetTimespan = 60;  // <-- Imagination: OK
         consensus.nPowTargetSpacing = 60;   // <-- Imagination: OK
         consensus.fPowAllowMinDifficultyBlocks = false;
@@ -109,7 +110,7 @@ public:
         nDefaultPort = 31678;       // <--Einsteinium: OK
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock("NY Times 19/Feb/2014 North Korea Arrests Christian Missionary From Australia", CScript() << OP_DUP << OP_HASH160 << ParseHex("7062D502A8B9214BDEA7684A61410C9CC4E404CA") << OP_EQUALVERIFY << OP_CHECKSIG, 1392841423, 3236648, 0x1e0ffff0, 1, 50 * COIN); // <--Imagination: OK
+        genesis = CreateGenesisBlock("NY Times 19/Feb/2014 North Korea Arrests Christian Missionary From Australia", CScript() << OP_DUP << OP_HASH160 << ParseHex("1cec44c9f9b769ae08ebf9d694c7611a16edf615") << OP_EQUALVERIFY << OP_CHECKSIG, 1392841423, 3236648, 0x1e0ffff0, 1, 50 * COIN); // <--Imagination: OK
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0x4e56204bb7b8ac06f860ff1c845f03f984303b5b97eb7b42868f714611aed94b")); // <--Imagination: OK
         assert(genesis.hashMerkleRoot == uint256S("0xb3e47e8776012ee4352acf603e6b9df005445dcba85c606697f422be3cc26f9b")); // <--Imagination: OK
@@ -202,7 +203,7 @@ public:
         nDefaultPort = 21678;       // <--Imagination: OK
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock("NY Times 19/Feb/2014 North Korea Arrests Christian Missionary From Australia", CScript() << OP_DUP << OP_HASH160 << ParseHex("7062D502A8B9214BDEA7684A61410C9CC4E404CA") << OP_EQUALVERIFY << OP_CHECKSIG, 1494757042, 2231829, 0x1e0ffff0, 1, 50 * COIN); // <--Imagination: OK
+        genesis = CreateGenesisBlock("NY Times 19/Feb/2014 North Korea Arrests Christian Missionary From Australia", CScript() << OP_DUP << OP_HASH160 << ParseHex("1cec44c9f9b769ae08ebf9d694c7611a16edf615") << OP_EQUALVERIFY << OP_CHECKSIG, 1494757042, 2231829, 0x1e0ffff0, 1, 50 * COIN); // <--Imagination: OK
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0xa4271888b5e60092c3e7183a76d454741e9a7a55f2b4afbe574615829e406bee"));   // <--Imagination: OK
         assert(genesis.hashMerkleRoot == uint256S("0xb3e47e8776012ee4352acf603e6b9df005445dcba85c606697f422be3cc26f9b"));   // <--Imagination: OK
