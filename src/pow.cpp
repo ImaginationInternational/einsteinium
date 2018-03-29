@@ -138,6 +138,7 @@ unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader
         const CBlockIndex *BlockLastSolved                                         = pindexLast;
         const CBlockIndex *BlockReading                                            = pindexLast;
 
+	unsigned int                          ChainChopingFactor                   = 4;
         uint64_t                              PastBlocksMass                       = 0;
         int64_t                               PastRateActualSeconds                = 0;
         int64_t                               PastRateTargetSeconds                = 0;
@@ -163,8 +164,18 @@ unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader
                                     PastDifficultyAverage = PastDifficultyAveragePrev - ((PastDifficultyAveragePrev - arith_uint256().SetCompact(BlockReading->nBits)) / i);
 
                 PastDifficultyAveragePrev = PastDifficultyAverage;
+//		while(PastRateActualSeconds == 0){
 
-                PastRateActualSeconds                        = (BlockLastSolved->GetBlockTime()  - BlockReading->GetBlockTime() ) * int64_t("0x0fffffffffffffffffffffffffffffff") * int64_t("0xffffffffffffffffffffffffffffffff") * int64_t("0xffffffffffffffffffffffffffffffff") * int64_t("0xffffffffffffffffffffffffffffffff")  * int64_t("0xffffffffffffffffffffffffffffffff") * int64_t("0xffffffffffffffffffffffffffffffff") * int64_t("0xffffffffffffffffffffffffffffffff");
+	                PastRateActualSeconds                        = (BlockLastSolved->GetBlockTime()  - BlockReading->GetBlockTime() ) ;
+		        for(unsigned int j = 0; j < ChainChopingFactor ; j--){
+                        
+
+                               PastRateActualSeconds = PastRateActualSeconds * int64_t("0x0fffffffffffffffffffffffffffffff");
+
+                        }
+//			ChainChopingFactor--;
+
+//		}
                 PastRateTargetSeconds                        = TargetBlocksSpacingSeconds * PastBlocksMass ;
                 PastRateAdjustmentRatio                        = double(1);
                 if (PastRateActualSeconds < 0) { PastRateActualSeconds = 0; }
