@@ -2611,7 +2611,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                                REJECT_INVALID, "bad-cb-amount");
 
     // For Imagination also add the protocol rule that the first output in the coinbase must go to the charity address and have at least 2.5% of the subsidy (as per integer arithmetic)
-    If((pindex->nHeight) >= FORK_BLOCK){
+    if((pindex->nHeight) >= FORK_BLOCK){
 
         if (block.vtx[0].vout[0].scriptPubKey != CHARITY_SCRIPT_POST_FORK)
             return state.DoS(100, error("ConnectBlock() : coinbase does not pay to the charity in the first output)"));
