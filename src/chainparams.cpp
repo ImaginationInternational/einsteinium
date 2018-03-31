@@ -147,7 +147,8 @@ public:
             (    36032, uint256S("0xff37468190b2801f2e72eb1762ca4e53cda6c075af48343f28a32b649512e9a8"))  // <--Einsteinium: OK
             (    51365, uint256S("0x702b407c68091f3c97a587a8d92684666bb622f6821944424b850964b366e42c"))  // <--Einsteinium: OK
             (   621000, uint256S("0xe2bf6d219cff9d6d7661b7964a05bfea3128265275c3673616ae71fed7072981"))  // <--Einsteinium: OK
-            (  1410100, uint256S("0xf6736ff2a7743014ab1902e442328f5c9928ce7f4edb2b4fd0130010cb4cebc4")), // <--Einsteinium: OK
+            (  1410100, uint256S("0xf6736ff2a7743014ab1902e442328f5c9928ce7f4edb2b4fd0130010cb4cebc4"))  // <--Einsteinium: OK
+            (  1671700, uint256S("0xbd0bce331b04666a4ed4c1d909aef40f89629d7af2a47820bfb6277275211f40")), // <--Imagination: OK
 //            1494147472, // * UNIX timestamp of last checkpoint block                                     // <--Einsteinium: OK
 //            2147811,    // * total number of transactions between genesis and last checkpoint            // <--Einsteinium: OK
 //                      //   (the tx=... number in the SetBestChain debug.log lines)
