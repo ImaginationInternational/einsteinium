@@ -854,7 +854,7 @@ UniValue estimatesmartfee(const UniValue& params, bool fHelp)
             "1. nblocks     (numeric)\n"
             "\nResult:\n"
             "{\n"
-            "  \"feerate\" : x.x,     (numeric) estimate fee-per-kilobyte (in MAG)\n"
+            "  \"feerate\" : x.x,     (numeric) estimate fee-per-kilobyte (in XIM)\n"
             "  \"blocks\" : n         (numeric) block number where estimate was found\n"
             "}\n"
             "\n"
