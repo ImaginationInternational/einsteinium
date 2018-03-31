@@ -21,7 +21,7 @@ int64_t MAX_BLOCK_SIGOPS_COST = 80000;
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
 int COINBASE_MATURITY = 100;
 /** Fork block number */
-int FORK_BLOCK = 1712876;
+int FORK_BLOCK = 1671695;
 /** Whether fork should occur or not (-disablefork sets to false) */
 bool FORK_ALLOWED = true;
 

@@ -4491,8 +4491,11 @@ bool InitBlockIndex(const CChainParams& chainparams)
 
     // Initialise the charity script here, as this takes place in the the test code also
 
-    CHARITY_SCRIPT << OP_DUP << OP_HASH160 << ParseHex(chainparams.GetConsensus().CharityPostForkPubKey) << OP_EQUALVERIFY << OP_CHECKSIG;
-
+    If((pindexPrev->nHeight+1) >= FORK_BLOCK){
+        CHARITY_SCRIPT << OP_DUP << OP_HASH160 << ParseHex(chainparams.GetConsensus().CharityPostForkPubKey) << OP_EQUALVERIFY << OP_CHECKSIG;
+    } else {
+        CHARITY_SCRIPT << OP_DUP << OP_HASH160 << ParseHex(chainparams.GetConsensus().CharityPubKey) << OP_EQUALVERIFY << OP_CHECKSIG;
+    }
     // Check whether we're already initialized
     if (chainActive.Genesis() != NULL)
         return true;
