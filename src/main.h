@@ -202,6 +202,7 @@ static const signed int DEFAULT_CHECKBLOCKS = 6 * 4;
 static const unsigned int DEFAULT_CHECKLEVEL = 3;
 
 extern CScript CHARITY_SCRIPT;
+extern CScript CHARITY_SCRIPT_POST_FORK;
 
 // Require that user allocate at least 550MB for block & undo files (blk???.dat and rev???.dat)
 // At 1MB per block, 288 blocks = 288MB.

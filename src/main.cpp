@@ -119,6 +119,7 @@ static void CheckBlockIndex(const Consensus::Params& consensusParams);
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 CScript CHARITY_SCRIPT;
+CScript CHARITY_SCRIPT_POST_FORK;
 
 const string strMessageMagic = "Imagination Signed Message:\n";
 
@@ -2610,9 +2611,17 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                                REJECT_INVALID, "bad-cb-amount");
 
     // For Imagination also add the protocol rule that the first output in the coinbase must go to the charity address and have at least 2.5% of the subsidy (as per integer arithmetic)
+    If((pindex->nHeight) >= FORK_BLOCK){
 
-    if (block.vtx[0].vout[0].scriptPubKey != CHARITY_SCRIPT)
-        return state.DoS(100, error("ConnectBlock() : coinbase does not pay to the charity in the first output)"));
+        if (block.vtx[0].vout[0].scriptPubKey != CHARITY_SCRIPT_POST_FORK)
+            return state.DoS(100, error("ConnectBlock() : coinbase does not pay to the charity in the first output)"));
+
+    } else {
+
+        if (block.vtx[0].vout[0].scriptPubKey != CHARITY_SCRIPT)
+            return state.DoS(100, error("ConnectBlock() : coinbase does not pay to the charity in the first output)"));
+
+    }
     int64_t charityAmount = GetBlockSubsidy(pindex->nHeight, chainparams.GetConsensus()) * 2.5 / 100;
     if (block.vtx[0].vout[0].nValue < charityAmount)
        return state.DoS(100, error("ConnectBlock() : coinbase does not pay enough to the charity"));
@@ -4491,11 +4500,9 @@ bool InitBlockIndex(const CChainParams& chainparams)
 
     // Initialise the charity script here, as this takes place in the the test code also
 
-    if((pindex->nHeight) >= FORK_BLOCK){
-        CHARITY_SCRIPT << OP_DUP << OP_HASH160 << ParseHex(chainparams.GetConsensus().CharityPostForkPubKey) << OP_EQUALVERIFY << OP_CHECKSIG;
-    } else {
+        CHARITY_SCRIPT_POST_FORK << OP_DUP << OP_HASH160 << ParseHex(chainparams.GetConsensus().CharityPostForkPubKey) << OP_EQUALVERIFY << OP_CHECKSIG;
         CHARITY_SCRIPT << OP_DUP << OP_HASH160 << ParseHex(chainparams.GetConsensus().CharityPubKey) << OP_EQUALVERIFY << OP_CHECKSIG;
-    }
+
     // Check whether we're already initialized
     if (chainActive.Genesis() != NULL)
         return true;
