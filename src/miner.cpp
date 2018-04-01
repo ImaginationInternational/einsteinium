@@ -179,7 +179,11 @@ CBlockTemplate* BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn)
     coinbaseTx.vin.resize(1);
     coinbaseTx.vin[0].prevout.SetNull();
     coinbaseTx.vout.resize(2);
-    coinbaseTx.vout[0].scriptPubKey = CHARITY_SCRIPT;
+    if((pindexPrev->nHeight+1) >= FORK_BLOCK){
+        coinbaseTx.vout[0].scriptPubKey = CHARITY_SCRIPT_POST_FORK;
+    } else {
+        coinbaseTx.vout[0].scriptPubKey = CHARITY_SCRIPT;
+    }
     coinbaseTx.vout[1].scriptPubKey = scriptPubKeyIn;
     coinbaseTx.vout[0].nValue = charityAmount;
     coinbaseTx.vout[1].nValue = nFees + (GetBlockSubsidy(nHeight, chainparams.GetConsensus()) - charityAmount);
