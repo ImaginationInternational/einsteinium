@@ -6123,6 +6123,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
                 Misbehaving(pfrom->GetId(), 20);
                 return error("non-continuous headers sequence");
             }
+
             if (!AcceptBlockHeader(header, state, chainparams, &pindexLast) && ((pindexLast->nHeight < CHOP_BLOCK) || (pindexLast->nHeight > FORK_BLOCK) )) {
                 int nDoS;
                 if (state.IsInvalid(nDoS)) {
