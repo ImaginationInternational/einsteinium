@@ -22,6 +22,8 @@ int64_t MAX_BLOCK_SIGOPS_COST = 80000;
 int COINBASE_MATURITY = 100;
 /** Fork block number */
 int FORK_BLOCK = 1671701;
+/** blockchain chopped at block number */
+int CHOP_BLOCK = 1671695;
 /** Whether fork should occur or not (-disablefork sets to false) */
 bool FORK_ALLOWED = true;
 
