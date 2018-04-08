@@ -33,7 +33,9 @@ extern int64_t MAX_BLOCK_SIGOPS_COST;
 extern int COINBASE_MATURITY;
 /** Fork block number */
 extern int FORK_BLOCK;
-/** lockchain chopped at block number */
+/** Temp state at block number */
+extern int TEMP_BLOCK;
+/** Blockchain chopped at block number */
 extern int CHOP_BLOCK;
 /** Whether fork should occur or not (-disablefork sets to false) */
 extern bool FORK_ALLOWED;

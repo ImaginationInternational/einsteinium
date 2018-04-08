@@ -47,6 +47,7 @@ struct Params {
     int BIP34Height;
     uint256 BIP34Hash;
     const char *CharityPubKey;
+    const char *CharityPostTempPubKey;
     const char *CharityPostForkPubKey;
     /**
      * Minimum blocks including miner confirmation of the total of 2016 blocks in a retargetting period,

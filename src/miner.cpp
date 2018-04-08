@@ -182,7 +182,11 @@ CBlockTemplate* BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn)
     if((pindexPrev->nHeight+1) >= FORK_BLOCK){
         coinbaseTx.vout[0].scriptPubKey = CHARITY_SCRIPT_POST_FORK;
     } else {
-        coinbaseTx.vout[0].scriptPubKey = CHARITY_SCRIPT;
+        if(((pindexPrev->nHeight+1) >= TEMP_BLOCK) && ((pindexPrev->nHeight+1) < FORK_BLOCK)){
+            coinbaseTx.vout[0].scriptPubKey = CHARITY_SCRIPT_POST_TEMP;
+        } else {
+            coinbaseTx.vout[0].scriptPubKey = CHARITY_SCRIPT;
+        }
     }
     coinbaseTx.vout[1].scriptPubKey = scriptPubKeyIn;
     coinbaseTx.vout[0].nValue = charityAmount;

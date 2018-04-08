@@ -73,7 +73,8 @@ public:
         consensus.BIP34Hash = uint256S("0xd1c175570320d4d6388a4525385b8f20460d340f621cfeebb9824712b9e593c5"); // <-- Imagination: used for BIP30 enforcement, set to corresponding BIP34 Height after V3 activation!
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.CharityPubKey = "1cec44c9f9b769ae08ebf9d694c7611a16edf615"; // EKnqTC9XEuucZEhD3miDGnbJxBptcxhByA
-        consensus.CharityPostForkPubKey = "7062D502A8B9214BDEA7684A61410C9CC4E404CA"; // ETQ9a3PMg5QRA2DBzp5DPthfXxN6QqiMML
+        consensus.CharityPostTempPubKey = "7062D502A8B9214BDEA7684A61410C9CC4E404CA"; // ETQ9a3PMg5QRA2DBzp5DPthfXxN6QqiMML
+        consensus.CharityPostForkPubKey = "ec4d63447e38628de79741883bac6b5b788cc828"; // EehMfrPKe1sCpQEuwCfVSRztDHbNqB8ceF // address hex found here: http://gobittest.appspot.com/Address
         consensus.nPowTargetTimespan = 60;  // <-- Imagination: OK
         consensus.nPowTargetSpacing = 60;   // <-- Imagination: OK
         consensus.fPowAllowMinDifficultyBlocks = false;

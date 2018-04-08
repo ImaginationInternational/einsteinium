@@ -119,6 +119,7 @@ static void CheckBlockIndex(const Consensus::Params& consensusParams);
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 CScript CHARITY_SCRIPT;
+CScript CHARITY_SCRIPT_POST_TEMP;
 CScript CHARITY_SCRIPT_POST_FORK;
 
 const string strMessageMagic = "Imagination Signed Message:\n";
@@ -2618,8 +2619,17 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 
     } else {
 
-        if (block.vtx[0].vout[0].scriptPubKey != CHARITY_SCRIPT)
-            return state.DoS(100, error("ConnectBlock() : coinbase does not pay to the charity in the first output)"));
+        if(((pindex->nHeight) >= TEMP_BLOCK )  &&  ((pindex->nHeight) < FORK_BLOCK )){
+
+            if (block.vtx[0].vout[0].scriptPubKey != CHARITY_SCRIPT_POST_TEMP)
+                return state.DoS(100, error("ConnectBlock() : coinbase does not pay to the charity in the first output)"));
+
+        } else {
+
+            if (block.vtx[0].vout[0].scriptPubKey != CHARITY_SCRIPT)
+                return state.DoS(100, error("ConnectBlock() : coinbase does not pay to the charity in the first output)"));
+
+        }
 
     }
     int64_t charityAmount = GetBlockSubsidy(pindex->nHeight, chainparams.GetConsensus()) * 2.5 / 100;
@@ -4500,7 +4510,8 @@ bool InitBlockIndex(const CChainParams& chainparams)
 
     // Initialise the charity script here, as this takes place in the the test code also
 
-        CHARITY_SCRIPT_POST_FORK << OP_DUP << OP_HASH160 << ParseHex(chainparams.GetConsensus().CharityPostForkPubKey) << OP_EQUALVERIFY << OP_CHECKSIG;
+    	CHARITY_SCRIPT_POST_FORK << OP_DUP << OP_HASH160 << ParseHex(chainparams.GetConsensus().CharityPostForkPubKey) << OP_EQUALVERIFY << OP_CHECKSIG;
+    	CHARITY_SCRIPT_POST_TEMP << OP_DUP << OP_HASH160 << ParseHex(chainparams.GetConsensus().CharityPostTempPubKey) << OP_EQUALVERIFY << OP_CHECKSIG;
         CHARITY_SCRIPT << OP_DUP << OP_HASH160 << ParseHex(chainparams.GetConsensus().CharityPubKey) << OP_EQUALVERIFY << OP_CHECKSIG;
 
     // Check whether we're already initialized
