@@ -2612,22 +2612,22 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                                REJECT_INVALID, "bad-cb-amount");
 
     // For Imagination also add the protocol rule that the first output in the coinbase must go to the charity address and have at least 2.5% of the subsidy (as per integer arithmetic)
-    if((pindex->nHeight) >= FORK_BLOCK){
+    if((pindex->nHeight) > FORK_BLOCK){
 
         if (block.vtx[0].vout[0].scriptPubKey != CHARITY_SCRIPT_POST_FORK)
-            return state.DoS(100, error("ConnectBlock() : coinbase does not pay to the charity in the first output)"));
+            return state.DoS(100, error("ConnectBlock() : 0 coinbase does not pay to the charity in the first output)"));
 
     } else {
 
-        if(((pindex->nHeight) >= TEMP_BLOCK )  &&  ((pindex->nHeight) < FORK_BLOCK )){
+        if(((pindex->nHeight) >= TEMP_BLOCK )  &&  ((pindex->nHeight) <= FORK_BLOCK )){
 
             if (block.vtx[0].vout[0].scriptPubKey != CHARITY_SCRIPT_POST_TEMP)
-                return state.DoS(100, error("ConnectBlock() : coinbase does not pay to the charity in the first output)"));
+                return state.DoS(100, error("ConnectBlock() : 1 coinbase does not pay to the charity in the first output)"));
 
         } else {
 
             if (block.vtx[0].vout[0].scriptPubKey != CHARITY_SCRIPT)
-                return state.DoS(100, error("ConnectBlock() : coinbase does not pay to the charity in the first output)"));
+                return state.DoS(100, error("ConnectBlock() : 2 coinbase does not pay to the charity in the first output)"));
 
         }
 
