@@ -5,14 +5,6 @@ Imagination Core integration/staging tree
 
 https://Imagination.International
 
-Repo & Branches:
-----------------
-
-Dev branches are in place for online and offline development - contributors please create your own fork or branch
-
-The "master" branch is currently used to rebase the latest Imagination code - otherwise it stays untouched
-
-
 What is Imagination?
 ----------------
 
@@ -55,6 +47,14 @@ should be used to discuss complicated or controversial changes before working
 on a patch set.
 
 Developers can easily be reached on our [Slack](http://emc2slack.herokuapp.com/).
+
+Repo & Branches:
+----------------
+
+Dev branches are in place for online and offline development - contributors please create your own fork or branch
+
+The "master" branch is currently used to rebase the latest Imagination code - otherwise it stays untouched
+
 
 Testing
 -------
