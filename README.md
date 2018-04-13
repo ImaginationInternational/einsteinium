@@ -8,13 +8,10 @@ https://Imagination.International
 Repo & Branches:
 ----------------
 
-The default branch is always set to the latest release or RC - for the first re-merge to Litecoin it is 0.13.x (coming soon) Releases and RCs are always tagged.
-
 Dev branches are in place for online and offline development - contributors please create your own fork or branch
 
-The "master" branch is currently used to rebase the latest Litecoin code - otherwise it stays untouched
+The "master" branch is currently used to rebase the latest Imagination code - otherwise it stays untouched
 
-The current, deprecated Imagination 0.9.2 wallet is available as a tagged branch as well
 
 What is Imagination?
 ----------------
@@ -33,8 +30,7 @@ software which enables the use of this currency.
 - Difficulty Re-targeting: per block (Kimoto Gravity Well)
 - RPC Port: 31679
 - P2P Port: 31678
-- Donation to the Imagination Charitable Fund (per block): 2%
-- Donation to to faucets, give-aways and marketing (per block): 0.5%
+- Donation to faucets, give-aways, marketing, and infrastructure (per block): 2.5%
 
 For more information, as well as an immediately useable, binary version of
 the Imagination Core software, see [https://Imagination.International](https://Imagination.International).
