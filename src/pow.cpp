@@ -21,7 +21,8 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 {
     int nHeight = pindexLast->nHeight + 1;
     bool fNewDifficultyProtocol = (nHeight >= nDiffChangeTarget);
-    printf("nHeight >= nDiffChangeTarget - %i >= %ld    ::  FORK_BLOCK: %i\n", nHeight, nDiffChangeTarget, FORK_BLOCK);
+//// un-comment for monitoring
+//    printf("nHeight >= nDiffChangeTarget - %i >= %ld    ::  FORK_BLOCK: %i\n", nHeight, nDiffChangeTarget, FORK_BLOCK);
 
     if ((fNewDifficultyProtocol || params.fPowAllowMinDifficultyBlocks) && (nHeight > FORK_BLOCK)) {
         return DigiShield(pindexLast, pblock, params);
